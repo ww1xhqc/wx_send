@@ -2,7 +2,6 @@ import time
 import requests
 import json
 import html5lib
-import schedule
 from bs4 import BeautifulSoup
 import os
 
