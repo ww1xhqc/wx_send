@@ -1,0 +1,30 @@
+name: Send Wechat Message Daily
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # UTC时间每天0点执行，即北京时间早上8点
+
+jobs:
+  send_message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' # 或者你使用的Python版本
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Python script
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_SECRET: ${{ secrets.APP_SECRET }}
+          OPEN_IDS: ${{ secrets.OPEN_IDS }}
+          WEATHER_TEMPLATE_ID: ${{ secrets.WEATHER_TEMPLATE_ID }}
+          CITY: ${{ secrets.CITY }}
+        run: python main.py
