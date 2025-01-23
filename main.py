@@ -6,13 +6,6 @@ import schedule
 from bs4 import BeautifulSoup
 import os
 
-# # 从测试号信息获取
-# appID = "wx966de8558149bf3f"
-# appSecret = "0925ef3d32bfe5e907d7e672b4e9dd88"
-# # 收信人ID即 用户列表中的微信号，
-# openIds = ["o8_NG7F4seO45Pq2op-vwx05Prbs", "o8_NG7NEoFugvlcUWDRBdJHrBW6Q"]
-# # 天气预报模板ID
-# weather_template_id = "X20zchsleEyx00oRsLJJA8D5yXa4uVLLTQe4OdcSnU4"
 
 # 从环境变量中获取
 appID = os.environ.get("APP_ID")
