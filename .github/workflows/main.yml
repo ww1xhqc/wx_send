@@ -29,5 +29,4 @@ jobs:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           OPEN_IDS: ${{ secrets.OPEN_IDS }}
           WEATHER_TEMPLATE_ID: ${{ secrets.WEATHER_TEMPLATE_ID }}
-          CITY: ${{ secrets.CITY }}
         run: python main.py
