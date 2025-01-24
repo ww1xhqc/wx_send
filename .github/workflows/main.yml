@@ -2,7 +2,7 @@ name: Send Wechat Message Daily
 
 on:
   schedule:
-    - cron: '*/10 * * * *' # UTC时间每天0点执行，即北京时间早上8点
+    - cron: '0 0-14 * * *' #北京时间 (UTC+8) 的早上 8 点到晚上 10 点运行
   push:
     branches:
       - master
