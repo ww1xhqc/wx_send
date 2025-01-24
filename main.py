@@ -293,7 +293,7 @@ def send_updated_weather(access_token, weather_info):
         body = {
             "touser": openId,
             "template_id": weather_template_id,
-            "url": "https://ww1xhqc-gemini-play-11.deno.dev/",
+            "url": "https://ww1xhqc-deno-weathe-55.deno.dev/",
             "data": {
                 "date": {
                     "value": today_str
