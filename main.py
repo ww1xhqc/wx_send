@@ -117,24 +117,24 @@ def send_weather(access_token, weather):
         print(requests.post(url, json.dumps(body)).text)
 
 
-def weather_report(city):
-    # 1.获取access_token
-    access_token = get_access_token()
-    # 获取彩云天气信息
-    caiyun_weather = get_caiyun_weather(115.011638, 32.753972)
-    if caiyun_weather:
-        print(f"彩云天气信息： {caiyun_weather}")
-        # 发送消息
-        send_updated_weather(access_token, caiyun_weather)  # 使用新的发送模版函数
-    else:
-        print("未能获取彩云天气信息，将尝试使用get_weather获取天气信息")
-        # Fallback to the original weather function if 彩云天气 fails
-        weather = get_weather(city)
-        if weather:
-            print(f"传统天气信息: {weather}")
-            send_weather(access_token, weather)  # 仍然使用旧的发送模版函数
-        else:
-            print("获取天气信息失败，无法发送天气预报")
+# def weather_report(city):
+#     # 1.获取access_token
+#     access_token = get_access_token()
+#     # 获取彩云天气信息
+#     caiyun_weather = get_caiyun_weather(115.011638, 32.753972)
+#     if caiyun_weather:
+#         print(f"彩云天气信息： {caiyun_weather}")
+#         # 发送消息
+#         send_updated_weather(access_token, caiyun_weather)  # 使用新的发送模版函数
+#     else:
+#         print("未能获取彩云天气信息，将尝试使用get_weather获取天气信息")
+#         # Fallback to the original weather function if 彩云天气 fails
+#         weather = get_weather(city)
+#         if weather:
+#             print(f"传统天气信息: {weather}")
+#             send_weather(access_token, weather)  # 仍然使用旧的发送模版函数
+#         else:
+#             print("获取天气信息失败，无法发送天气预报")
 
 def get_caiyun_weather(longitude, latitude):
     url = f"https://api.caiyunapp.com/v2.6/OMFSneNpNxLXXUOf/{longitude},{latitude}/realtime"
@@ -299,7 +299,7 @@ def send_updated_weather(access_token, weather_info):
                     "value": today_str
                 },
                 "region": {
-                    "value": "新蔡"
+                    "value": "拱墅区"
                 },
                 "weather_info": {
                     "value": weather_info.get('skycon', '未知')
@@ -346,5 +346,5 @@ def send_updated_weather(access_token, weather_info):
 
 
 if __name__ == '__main__':
-    weather = get_caiyun_weather(115.011638, 32.753972)
+    weather = get_caiyun_weather(120.179723, 30.307765)
     send_updated_weather(get_access_token(), weather)
