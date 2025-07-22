@@ -34,7 +34,7 @@ def get_access_token():
 
 
 def get_caiyun_weather(longitude, latitude):
-    url = f"https://api.caiyunapp.com/v2.6/OMFSneNpNxLXXUOf/{longitude},{latitude}/realtime"
+    url = f"https://api.caiyunapp.com/v2.6/e33yDoI0CsAbRvF7/{longitude},{latitude}/realtime"
     response = requests.get(url)
     weather_data = response.json()
     if weather_data['status'] == 'ok':
